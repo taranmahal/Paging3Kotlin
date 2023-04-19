@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.nebula.expagination.userdetail.UserDetailViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/userImage"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:scaleType="centerCrop"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        imageUrl="@{viewModel.url}"
+        app:tint="@color/purple_200"
+        android:tintMode="multiply"/>
+
+    <com.google.android.material.imageview.ShapeableImageView
+        android:id="@+id/userImageC"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:scaleType="centerCrop"
+        android:layout_marginStart="20dp"
+        app:layout_constraintBottom_toBottomOf="@id/userImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        imageUrl="@{viewModel.url}"
+        app:shapeAppearanceOverlay="@style/Circular"
+        android:layout_marginBottom="20dp"/>
+
+    <LinearLayout
+        app:layout_constraintBottom_toBottomOf="@id/userImage"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintLeft_toRightOf="@id/userImageC"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="20dp">
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.followers}"
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance.Important"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/followers"
+            android:textAppearance="@style/TextAppearance.Important"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginStart="10dp">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.following}"
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance.Important"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/following"
+            android:textAppearance="@style/TextAppearance.Important"/>
+    </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintTop_toBottomOf="@+id/userImage"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:padding="10dp">
+
+        <TextView
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance"
+            android:text="@{viewModel.name}"/>
+        <TextView
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance"
+            android:text="@{viewModel.city}"
+            app:drawableLeftCompat="@drawable/location_city" />
+        <TextView
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance"
+            android:text="@{viewModel.email}"
+            app:drawableLeftCompat="@drawable/email" />
+
+        <TextView
+            style="@style/PaddingSmall"
+            android:textAppearance="@style/TextAppearance"
+            android:text="@{viewModel.phone}"
+            app:drawableLeftCompat="@drawable/call" />
+
+    </LinearLayout>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

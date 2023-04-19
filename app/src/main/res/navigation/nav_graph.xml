@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/userListFragment">
+
+    <fragment
+        android:id="@+id/userListFragment"
+        android:name="com.nebula.expagination.userlist.UserListFragment"
+        android:label="UserListFragment"
+        tools:layout="@layout/frag_user_list">
+        <action
+            android:id="@+id/action_userListFragment_to_userDetail"
+            app:destination="@id/userDetail" />
+
+
+    </fragment>
+    <fragment
+        android:id="@+id/userDetail"
+        android:name="com.nebula.expagination.userdetail.UserDetailFragment"
+        android:label="UserDetail"
+        tools:layout="@layout/frag_user_detail">
+
+        <argument
+            android:name="userArg"
+            app:argType="com.nebula.expagination.userlist.data.Result"
+            app:nullable="true"
+            android:defaultValue="@null"/>
+    </fragment>
+</navigation>
